@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnoboxesvoc73"]
+
+[ext_resource type="Script" uid="uid://5rlch68vqrjv" path="res://background.gd" id="1_y0upk"]
+[ext_resource type="Texture2D" uid="uid://rwgqv5t8plhk" path="res://assets/graphics/background.png" id="2_jougr"]
+
+[node name="Background" type="Node2D"]
+script = ExtResource("1_y0upk")
+
+[node name="background1" type="Sprite2D" parent="."]
+texture = ExtResource("2_jougr")
+centered = false
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(0, -1280)
+texture = ExtResource("2_jougr")
+centered = false

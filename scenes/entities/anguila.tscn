@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3 uid="uid://b874wwvhdiuka"]
+
+[ext_resource type="Script" uid="uid://cwglsvsx1yyq2" path="res://scenes/entities/anguila.gd" id="1_fqv1x"]
+[ext_resource type="Texture2D" uid="uid://o01d6rsavkdu" path="res://assets/graphics/top-anguilad-1.png" id="2_waasx"]
+[ext_resource type="Texture2D" uid="uid://cukn4sstbkldu" path="res://assets/graphics/left-anguila2.png" id="3_rcmva"]
+[ext_resource type="Texture2D" uid="uid://h6wrskfl8jst" path="res://assets/graphics/left-anguila3.png" id="4_1b7ot"]
+[ext_resource type="Texture2D" uid="uid://iallsnrd4ikf" path="res://assets/graphics/left-anguila4.png" id="5_k4l6c"]
+[ext_resource type="Texture2D" uid="uid://hs677vsg3f41" path="res://assets/graphics/top-anguilad-2.png" id="6_jviwr"]
+[ext_resource type="Texture2D" uid="uid://5brfrq3gyxae" path="res://assets/graphics/top-anguilad-3.png" id="7_jmlst"]
+[ext_resource type="Texture2D" uid="uid://c16r7krykmn8k" path="res://assets/graphics/top-anguilad-4.png" id="8_24ok5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtvxc"]
+radius = 33.0
+height = 132.0
+
+[sub_resource type="Animation" id="Animation_3nbgf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top-anguilad-1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_waasx")]
+}
+
+[sub_resource type="Animation" id="Animation_pe11l"]
+resource_name = "move_left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top-anguilad-1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_waasx"), ExtResource("3_rcmva"), ExtResource("3_rcmva"), ExtResource("4_1b7ot"), ExtResource("5_k4l6c")]
+}
+
+[sub_resource type="Animation" id="Animation_raury"]
+resource_name = "move_rigth"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top-anguilad-1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_waasx"), ExtResource("6_jviwr"), ExtResource("7_jmlst"), ExtResource("8_24ok5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ptjr"]
+_data = {
+&"RESET": SubResource("Animation_3nbgf"),
+&"move_left": SubResource("Animation_pe11l"),
+&"move_rigth": SubResource("Animation_raury")
+}
+
+[node name="Anguila" type="CharacterBody2D"]
+script = ExtResource("1_fqv1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(112, 35)
+rotation = -0.0167741
+shape = SubResource("CapsuleShape2D_xtvxc")
+
+[node name="Top-anguilad-1" type="Sprite2D" parent="."]
+position = Vector2(115, 33)
+texture = ExtResource("2_waasx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2ptjr")
+}

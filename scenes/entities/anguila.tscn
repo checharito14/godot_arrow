@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://b874wwvhdiuka"]
 
 [ext_resource type="Script" uid="uid://cwglsvsx1yyq2" path="res://scenes/entities/anguila.gd" id="1_fqv1x"]
-[ext_resource type="Texture2D" uid="uid://o01d6rsavkdu" path="res://assets/graphics/top-anguilad-1.png" id="2_waasx"]
-[ext_resource type="Texture2D" uid="uid://cukn4sstbkldu" path="res://assets/graphics/left-anguila2.png" id="3_rcmva"]
-[ext_resource type="Texture2D" uid="uid://h6wrskfl8jst" path="res://assets/graphics/left-anguila3.png" id="4_1b7ot"]
-[ext_resource type="Texture2D" uid="uid://iallsnrd4ikf" path="res://assets/graphics/left-anguila4.png" id="5_k4l6c"]
-[ext_resource type="Texture2D" uid="uid://hs677vsg3f41" path="res://assets/graphics/top-anguilad-2.png" id="6_jviwr"]
-[ext_resource type="Texture2D" uid="uid://5brfrq3gyxae" path="res://assets/graphics/top-anguilad-3.png" id="7_jmlst"]
-[ext_resource type="Texture2D" uid="uid://c16r7krykmn8k" path="res://assets/graphics/top-anguilad-4.png" id="8_24ok5"]
+[ext_resource type="Texture2D" uid="uid://u4djj1kd4l23" path="res://assets/graphics/top-anguilad-1.png" id="2_waasx"]
+[ext_resource type="Texture2D" uid="uid://bpsx4mvjmywm8" path="res://assets/graphics/left-anguila2.png" id="3_rcmva"]
+[ext_resource type="Texture2D" uid="uid://c8v8psaas70g6" path="res://assets/graphics/left-anguila3.png" id="4_1b7ot"]
+[ext_resource type="Texture2D" uid="uid://1dykdb1axrwx" path="res://assets/graphics/left-anguila4.png" id="5_k4l6c"]
+[ext_resource type="Texture2D" uid="uid://d4b1vng2wvoqy" path="res://assets/graphics/top-anguilad-2.png" id="6_jviwr"]
+[ext_resource type="Texture2D" uid="uid://dfv1t2b23hy8l" path="res://assets/graphics/top-anguilad-3.png" id="7_jmlst"]
+[ext_resource type="Texture2D" uid="uid://bbqg5pq3gq113" path="res://assets/graphics/top-anguilad-4.png" id="8_24ok5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtvxc"]
 radius = 33.0

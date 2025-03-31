@@ -1,0 +1,127 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwy7gwhlm0346"]
+
+[sub_resource type="GDScript" id="GDScript_uhpes"]
+script/source = "extends Panel
+
+# Variables para los botones y fondo
+var background : TextureRect
+var start_button : Button
+var mar_button : Button
+var Son_button : Button
+var Skin_button : Button
+var sound_button : Button
+var score_label : Label
+var is_muted = false
+var copy_label : Label
+var record_label : Label
+var texture = preload(\"res://assets/graphics/sound.png\")
+var mar = preload(\"res://assets/graphics/marketplace.png\")
+var suits =preload(\"res://assets/graphics/suits.png\")
+var mute =preload(\"res://assets/graphics/mute.png\")
+
+func _ready():
+	# Fondo
+	background = TextureRect.new()
+	background.texture = preload(\"res://assets/graphics/background.png\")  # Ruta al fondo
+	background.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	background.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	add_child(background)
+
+	# Etiquetas de Puntuación y Record
+	score_label = Label.new()
+	score_label.text = \"PUNTOS:\"
+	score_label.position = Vector2(210, 180)
+	score_label.add_theme_font_size_override(\"font_size\", 24)
+	score_label.add_theme_color_override(\"font_color\", Color(0.4, 0.2, 0.1, 1))
+	add_child(score_label)
+
+	record_label = Label.new()
+	record_label.text = \"RECORD:\"
+	record_label.position = Vector2(370, 180)
+	record_label.add_theme_font_size_override(\"font_size\", 24)
+	record_label.add_theme_color_override(\"font_color\", Color(0.4, 0.2, 0.1, 1))
+	add_child(record_label)
+
+	# Botón de Iniciar Juego
+	start_button = Button.new()
+	start_button.text = \"INICIAR JUEGO\"
+	start_button.size = Vector2(320, 80)
+	start_button.position = Vector2(200, 100)
+	start_button.add_theme_stylebox_override(\"normal\", create_button_style(true))
+	start_button.add_theme_font_size_override(\"font_size\", 28)
+	add_child(start_button)
+	start_button.connect(\"pressed\", Callable(self, \"_on_start_button_pressed\"))
+
+	
+	mar_button=Button.new()
+	mar_button.icon=mar
+	mar_button.icon_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	mar_button.size = Vector2(80, 80)
+	mar_button.position = Vector2(200, 250)
+	mar_button.add_theme_stylebox_override(\"normal\", create_button_style(true))
+	mar_button.add_theme_font_size_override(\"font_size\", 28)
+	add_child(mar_button)
+	
+	
+	Son_button=Button.new()
+	Son_button.icon = texture
+	Son_button.size = Vector2(80, 80)
+	Son_button.position = Vector2(442, 250)
+	Son_button.icon_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	Son_button.add_theme_stylebox_override(\"normal\", create_button_style(true))
+	Son_button.add_theme_font_size_override(\"font_size\", 28)
+	add_child(Son_button)
+	Son_button.connect(\"pressed\", Callable(self, \"_on_Son_button_pressed\"))
+	
+	Skin_button=Button.new()
+	Skin_button.icon = suits
+	Skin_button.size = Vector2(80, 80)
+	Skin_button.position = Vector2(320, 250)
+	Skin_button.icon_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	Skin_button.add_theme_stylebox_override(\"normal\", create_button_style(true))
+	Skin_button.add_theme_font_size_override(\"font_size\", 28)
+	add_child(Skin_button)
+	
+	copy_label = Label.new()
+	copy_label.text = \"©Toleris Company\"
+	copy_label.position = Vector2(250, 800)
+	copy_label.add_theme_font_size_override(\"font_size\", 24)
+	copy_label.add_theme_color_override(\"font_color\", Color(0.4, 0.2, 0.1, 1))
+	add_child(copy_label)
+
+
+
+
+
+func create_button_style(is_main: bool) -> StyleBoxFlat:
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.9, 0.75, 0.55, 1) if is_main else Color(0.85, 0.65, 0.45, 1)
+	style.corner_radius_top_left = 20 if is_main else 10
+	style.corner_radius_top_right = 20 if is_main else 10
+	style.corner_radius_bottom_left = 20 if is_main else 10
+	style.corner_radius_bottom_right = 20 if is_main else 10
+	style.border_width_bottom = 3
+	style.border_width_top = 3
+	style.border_width_left = 3
+	style.border_width_right = 3
+	style.border_color = Color(0.5, 0.3, 0.2, 1)
+	return style
+func _on_start_button_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/main.tscn\")
+func _on_Son_button_pressed():
+	is_muted = not is_muted
+	if is_muted:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index(\"Master\"), true)
+		Son_button.icon = mute
+		
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index(\"Master\"), false)
+		Son_button.icon = texture
+"
+
+[node name="Menu" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_uhpes")

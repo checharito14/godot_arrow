@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://lf7x8wgdr2xx"]
+
+[sub_resource type="GDScript" id="GDScript_7meim"]
+script/source = "extends Node2D
+
+# Variables para los botones y el fondo
+var start_button
+var shop_button
+var background
+var tween
+
+func _ready():
+	# 1. Crear el fondo (Sprite) usando la imagen que tienes en assets/graphics/background.png
+	background = Sprite2D.new()  # Usamos un Sprite2D para mostrar la imagen
+	background.texture = load(\"res://assets/graphics/background.png\")  # Cargamos la imagen de fondo
+	background.scale = Vector2(1, 1)  # Escalamos la imagen para que se ajuste a la pantalla
+	add_child(background)  # Añadimos el fondo a la escena
+
+	# 2. Crear el botón \"Iniciar Juego\"
+	start_button = Button.new()  # Creamos un nuevo botón
+	start_button.text = \"Iniciar Juego\"  # Texto que aparece en el botón
+	start_button.scale = Vector2(2, 1)  # Escalamos el botón en el eje X (ancho) y Y (alto)
+	start_button.position = Vector2(800, 400)  # Posición del botón en la pantalla
+	add_child(start_button)  # Añadimos el botón a la escena
+
+	# 3. Crear el botón \"Ir a la Tienda\"
+	shop_button = Button.new()  # Creamos el segundo botón
+	shop_button.text = \"Ir a la Tienda\"  # Texto en el botón
+	shop_button.scale = Vector2(2, 1)  # Escalamos el botón en el eje X (ancho) y Y (alto)
+	shop_button.position = Vector2(800, 500)  # Posición del botón en la pantalla
+	add_child(shop_button)  # Añadimos el botón a la escena
+
+	# 4. Crear el nodo Tween para la animación de \"respiración\"
+	tween = Tween.new()  # Creamos el nodo Tween
+	add_child(tween)  # Añadimos el nodo Tween a la escena
+
+	# 5. Animar los botones para que \"respiren\"
+	_animate_button(start_button)
+	_animate_button(shop_button)
+
+# Función para animar los botones
+func _animate_button(button):
+	# Iniciar la animación de \"respiración\", haciendo que los botones crezcan y luego se reduzcan
+	tween.tween_property(button, \"scale\", Vector2(2.1, 1.1), 1.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0)
+	tween.tween_property(button, \"scale\", Vector2(2, 1), 1.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 1.5)
+"
+
+[node name="Principal" type="Node2D"]
+script = SubResource("GDScript_7meim")

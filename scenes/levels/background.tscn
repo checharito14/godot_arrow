@@ -14,3 +14,4 @@ centered = false
 position = Vector2(0, -1280)
 texture = ExtResource("2_jougr")
 centered = false
+

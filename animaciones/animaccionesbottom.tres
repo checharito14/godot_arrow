@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://dijp4py1ixnd"]
+
+[ext_resource type="Texture2D" uid="uid://r8hgpes02tlf" path="res://assets/graphics/bottomanguila/bottom-anguila.png" id="1_m20cj"]
+[ext_resource type="Texture2D" uid="uid://dpi5c2sgh7rbg" path="res://assets/graphics/bottomanguila/bottom-anguila2.png" id="2_takd7"]
+[ext_resource type="Texture2D" uid="uid://rlcy6rioff5l" path="res://assets/graphics/bottomanguila/bottom-anguila3.png" id="3_c27tv"]
+[ext_resource type="Texture2D" uid="uid://b0te4a7utwllh" path="res://assets/graphics/bottomanguila/bottom-anguila4.png" id="4_lb026"]
+[ext_resource type="Texture2D" uid="uid://cndfphlidx54l" path="res://assets/graphics/bottomanguila/bottom-anguilad2.png" id="5_57too"]
+[ext_resource type="Texture2D" uid="uid://cmdyaaygb5sco" path="res://assets/graphics/bottomanguila/bottom-anguilad3.png" id="6_s67sv"]
+[ext_resource type="Texture2D" uid="uid://2ttgn6ilm4i3" path="res://assets/graphics/bottomanguila/bottom-anguilad4.png" id="7_mgn7a"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m20cj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_takd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c27tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lb026")
+}],
+"loop": false,
+"name": &"b_move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m20cj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_57too")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s67sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mgn7a")
+}],
+"loop": false,
+"name": &"b_move_right",
+"speed": 5.0
+}]

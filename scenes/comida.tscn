@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnqpdrr3wq60o"]
+
+[ext_resource type="Texture2D" uid="uid://cy5t4st2d024m" path="res://assets/graphics/comida.png" id="1_ji58j"]
+[ext_resource type="Script" uid="uid://disd1m3toc1w3" path="res://scenes/comida.gd" id="1_siqvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siqvl"]
+size = Vector2(29, 23)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_siqvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_siqvl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ji58j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

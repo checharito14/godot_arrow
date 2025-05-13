@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b874wwvhdiuka"]
+[gd_scene load_steps=18 format=3 uid="uid://b874wwvhdiuka"]
 
 [ext_resource type="Script" uid="uid://cwglsvsx1yyq2" path="res://scenes/entities/anguila.gd" id="1_fqv1x"]
 [ext_resource type="Texture2D" uid="uid://nl1e3ne8orsm" path="res://assets/graphics/topanguila/anguila.png" id="2_rpjig"]
@@ -73,6 +73,10 @@ _data = {
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1b7ot"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcmva"]
+radius = 32.0
+height = 128.0
+
 [node name="Anguila" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_fqv1x")
@@ -94,3 +98,11 @@ libraries = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1b7ot")
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(112, 33)
+shape = SubResource("CapsuleShape2D_rcmva")
+
+[connection signal="area_entered" from="Detector" to="." method="_on_detector_area_entered"]

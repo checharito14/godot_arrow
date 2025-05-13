@@ -21,6 +21,10 @@ window/size/viewport_width=720
 window/size/viewport_height=960
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+obstaculos=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

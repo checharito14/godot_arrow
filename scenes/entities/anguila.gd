@@ -127,3 +127,8 @@ func _on_comida_comida():
 	print("Nuevo segmento añadido en posición:", posicion_nueva)
 	print("Segmento bottom reposicionado en:", nueva_pos_bottom)
 	
+
+
+func _on_detector_area_entered(area: Area2D) -> void:
+	if area.is_in_group("obstaculos"):
+		get_tree().change_scene_to_file("res://scenes/entities/MENU.tscn")

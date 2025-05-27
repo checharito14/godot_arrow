@@ -15,12 +15,12 @@ func _process(delta):
 	if timer_o >= tiempo_spawn:
 		timer_o = 0
 		crear_obstaculo()
-		
-	# Aquí se mueve cada obstáculo hacia abajo
+	
+# Aquí se mueve cada obstáculo hacia abajo
 	for obstaculo in get_children():
 		if obstaculo.is_in_group("obstaculo"):  # Asegúrate de que el obstáculo esté en la escena
 			obstaculo.position.y += velocidad * delta  # Mover el obstáculo hacia abajo por la velocidad ajustada
-		
+	
 func _ready():
 	timer = Timer.new()
 	add_child(timer)
@@ -39,6 +39,9 @@ func _on_Timer_timeout():
 	
 func _incrementar_puntos():
 	puntos += 1
+	if puntos > Global.high_score:
+		Global.high_score = puntos
+	Global.last_score = puntos 	
 	actualizar_puntos()
 
 func actualizar_puntos():

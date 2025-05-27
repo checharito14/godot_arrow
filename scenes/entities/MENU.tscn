@@ -29,14 +29,14 @@ func _ready():
 
 	# Etiquetas de Puntuación y Record
 	score_label = Label.new()
-	score_label.text = \"PUNTOS:\"
+	score_label.text = \"PUNTOS:   \" + str(Global.last_score)
 	score_label.position = Vector2(210, 180)
 	score_label.add_theme_font_size_override(\"font_size\", 24)
 	score_label.add_theme_color_override(\"font_color\", Color(0.4, 0.2, 0.1, 1))
 	add_child(score_label)
 
 	record_label = Label.new()
-	record_label.text = \"RECORD:\"
+	record_label.text = \"RECORD:   \" + str(Global.high_score)
 	record_label.position = Vector2(370, 180)
 	record_label.add_theme_font_size_override(\"font_size\", 24)
 	record_label.add_theme_color_override(\"font_color\", Color(0.4, 0.2, 0.1, 1))

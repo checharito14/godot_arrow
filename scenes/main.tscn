@@ -33,6 +33,7 @@ theme_override_font_sizes/font_size = 65
 text = "0"
 
 [node name="Muro" type="Area2D" parent="." groups=["obstaculos"]]
+z_index = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="Muro"]
 position = Vector2(351, 491)
@@ -43,6 +44,7 @@ position = Vector2(36, 485.5)
 shape = SubResource("RectangleShape2D_tbgi4")
 
 [node name="MuroD" type="Area2D" parent="." groups=["obstaculos"]]
+z_index = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="MuroD"]
 position = Vector2(382, 461)

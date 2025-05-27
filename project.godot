@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="juego_anguila"
-run/main_scene="uid://dggymmrohs4ei"
+run/main_scene="uid://68d1kb0ktn87"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scenes/global.gd"
 
 [display]
 

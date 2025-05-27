@@ -1,17 +1,20 @@
 extends CharacterBody2D
 
 @export var cola_texture : Texture2D
-@export var speed: float = 150.0
-@export var longitud_cola_maxima : int = 10
-@export var distancia_cola : float = 5.0
-@export var tiempo_spawn : float = 2.0 # cada cuántos segundos aparecen loss obstaculos
+@export var speed: float = 100.0
+@export var longitud_cola_maxima : int = 12
+@export var distancia_cola : float = 20.0
+@export var tiempo_spawn : float = 2.0 # cada cuántos segundos aparecen los obstaculos
 
 var direction: Vector2 = Vector2.LEFT
 var cola = []
-var offset_y = 65
-var offset_x = 125
+var offset_y = 90
+var offset_x = 170
 var historial_posiciones: Array[Vector2] = []
 var timer = 0.0
+var tiempo_acumulado := 0.0
+var intervalo_aceleracion := 15.0  # cada cuántos segundos aumenta la velocidad
+var incremento_velocidad := 50.0   # cuánto aumenta la velocidad cada vez
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -42,7 +45,7 @@ func _ready():
 		printerr("Error: El nodo anguila no tiene un padre válido.")
 
 func _process(delta: float) -> void:
-	velocity = direction * speed
+	velocity = direction * (speed + 10)
 	move_and_slide()
 	# Guardar la posición del jugador al inicio de cada frame
 	historial_posiciones.insert(0, position + Vector2(offset_x, offset_y))
@@ -58,10 +61,10 @@ func _process(delta: float) -> void:
 
 		if index_historial < historial_posiciones.size():
 			var pos_from_history = historial_posiciones[index_historial]
-			segmento["sprite"].global_position = Vector2(pos_from_history.x, segmento["posicion"].y)
+			segmento["sprite"].global_position = Vector2(pos_from_history.x, segmento["posicion"].y - 80)
 		else:
 			# Si no hay historial suficiente, mantener la posición actual
-			segmento["sprite"].global_position = Vector2(segmento["posicion"].x, segmento["posicion"].y)
+			segmento["sprite"].global_position = Vector2(segmento["posicion"].x, segmento["posicion"].y -10)
 
 	for i in range(cola.size()):
 		var segmento = cola[i]
@@ -75,6 +78,12 @@ func _process(delta: float) -> void:
 		if segmento["sprite"].animation != nueva_animacion:
 			segmento["sprite"].animation = nueva_animacion
 			segmento["sprite"].play()
+			
+	tiempo_acumulado += delta
+	if tiempo_acumulado >= intervalo_aceleracion:
+		speed += incremento_velocidad
+		tiempo_acumulado = 0.0  # reiniciar el contador
+		print("Velocidad aumentada a:", speed)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
@@ -104,11 +113,11 @@ func _on_comida_comida():
 		# Determinar la posición del nuevo segmento
 	var posicion_nueva: Vector2
 	if cola.is_empty():
-		posicion_nueva = position + Vector2(offset_x, offset_y + 70)
+		posicion_nueva = position + Vector2(offset_x, offset_y + 20)
 	else:
 		# Tomamos la posición del último segmento y le restamos un pequeño offset (ajusta según necesites)
 		var ultimo_segmento = cola.back()
-		posicion_nueva = ultimo_segmento.sprite.global_position + Vector2(0, offset_y)
+		posicion_nueva = ultimo_segmento.sprite.global_position + Vector2(0, offset_y + 48)
 
 	cola.append({
 		"sprite": nuevo_sprite,
@@ -116,10 +125,10 @@ func _on_comida_comida():
 		"es_bottom": false
 	})
 
-	nuevo_sprite.position = posicion_nueva
+	nuevo_sprite.global_position = posicion_nueva
 
 	# Volver a agregar el bottom al final
-	var nueva_pos_bottom = nuevo_sprite.position + Vector2(0 + 30, offset_y + 20)
+	var nueva_pos_bottom = nuevo_sprite.global_position + Vector2(0 + 200, offset_y)
 	bottom_segment["posicion"] = nueva_pos_bottom
 	bottom_segment["sprite"].position = nueva_pos_bottom
 	cola.append(bottom_segment)

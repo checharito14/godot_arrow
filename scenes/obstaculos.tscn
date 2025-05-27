@@ -5,6 +5,8 @@
 [node name="Area2D" type="Area2D" groups=["obstaculos"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visibility_layer = 16
+z_index = 10
 position = Vector2(356, 334)
 texture = ExtResource("1_i6nku")
 

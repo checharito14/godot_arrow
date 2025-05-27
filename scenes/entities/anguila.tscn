@@ -1,21 +1,25 @@
-[gd_scene load_steps=18 format=3 uid="uid://b874wwvhdiuka"]
+[gd_scene load_steps=20 format=3 uid="uid://b874wwvhdiuka"]
 
 [ext_resource type="Script" uid="uid://cwglsvsx1yyq2" path="res://scenes/entities/anguila.gd" id="1_fqv1x"]
-[ext_resource type="Texture2D" uid="uid://nl1e3ne8orsm" path="res://assets/graphics/topanguila/anguila.png" id="2_rpjig"]
-[ext_resource type="Texture2D" uid="uid://cslotbuyefqxe" path="res://assets/graphics/topanguila/anguila2.png" id="3_k2hj3"]
-[ext_resource type="Texture2D" uid="uid://dc0241qef6opp" path="res://assets/graphics/topanguila/anguila3.png" id="4_wvnml"]
-[ext_resource type="Texture2D" uid="uid://b5nf30y0u0cuo" path="res://assets/graphics/topanguila/anguila4.png" id="5_rcmva"]
-[ext_resource type="Texture2D" uid="uid://cgmvjuycwka0q" path="res://assets/graphics/topanguila/anguilad2.png" id="6_rcmva"]
-[ext_resource type="Texture2D" uid="uid://d2e5dafowrxu2" path="res://assets/graphics/topanguila/anguilad3.png" id="7_1b7ot"]
-[ext_resource type="Texture2D" uid="uid://6oc5h4k7b1tq" path="res://assets/graphics/topanguila/anguilad4.png" id="8_k4l6c"]
+[ext_resource type="Texture2D" uid="uid://cssodbbox25k6" path="res://assets/graphics/topanguila/at1.png" id="2_k4l6c"]
+[ext_resource type="Texture2D" uid="uid://bblb7hsyinlg2" path="res://assets/graphics/topanguila/at2.png" id="3_jviwr"]
+[ext_resource type="Texture2D" uid="uid://dgy5umarpwuqw" path="res://assets/graphics/topanguila/at3.png" id="4_jmlst"]
+[ext_resource type="Texture2D" uid="uid://uk6efvqbqnf0" path="res://assets/graphics/topanguila/at4.png" id="5_24ok5"]
+[ext_resource type="Texture2D" uid="uid://cvn2flhokxpwk" path="res://assets/graphics/topanguila/at5.png" id="6_pe11l"]
+[ext_resource type="Texture2D" uid="uid://dvesqffu446fo" path="res://assets/graphics/topanguila/at6.png" id="7_3nbgf"]
+[ext_resource type="Texture2D" uid="uid://bpxftjwslhljl" path="res://assets/graphics/topanguila/at7.png" id="8_raury"]
+[ext_resource type="Texture2D" uid="uid://cgmaepbw0n25j" path="res://assets/graphics/topanguila/at8.png" id="9_2ptjr"]
+[ext_resource type="Texture2D" uid="uid://deyj2jecukunm" path="res://assets/graphics/topanguila/at9.png" id="10_raigp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4sxep"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtvxc"]
-radius = 33.0
-height = 132.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4l6c"]
+radius = 35.0
+height = 80.4516
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fqv1x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1b7ot"]
 
 [sub_resource type="Animation" id="Animation_3nbgf"]
 length = 0.001
@@ -31,6 +35,54 @@ tracks/0/keys = {
 "update": 1,
 "values": [SubResource("CompressedTexture2D_fqv1x")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Detector/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Detector/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(55, -37)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_pe11l"]
 resource_name = "move_left"
@@ -42,10 +94,58 @@ tracks/0/path = NodePath("Top-anguilad-1:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.1, 0.3, 0.333333, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333333, 0.0667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_rpjig"), ExtResource("3_k2hj3"), ExtResource("4_wvnml"), ExtResource("5_rcmva"), ExtResource("5_rcmva")]
+"values": [ExtResource("10_raigp"), ExtResource("9_2ptjr"), ExtResource("8_raury"), ExtResource("7_3nbgf"), ExtResource("6_pe11l"), ExtResource("5_24ok5"), ExtResource("4_jmlst"), ExtResource("3_jviwr"), ExtResource("2_k4l6c")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Detector/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, -65), Vector2(105, -61), Vector2(105, -61), Vector2(120, -61), Vector2(130, -61), Vector2(140, -61), Vector2(140, -61), Vector2(140, -61), Vector2(140, -70)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Detector/CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.13272, 0.905826, 0.678933, 0.565487, 0.0, -0.678933, -0.678933, -0.905826, -1.13272]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(110, -73), Vector2(110, -75), Vector2(110, -75), Vector2(125, -80), Vector2(125, -75), Vector2(130, -75), Vector2(130, -75), Vector2(130, -75), Vector2(130, -75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.13272, 0.905826, 0.678933, 0.565487, 0.0, -0.678933, -0.678933, -0.905826, -1.13272]
 }
 
 [sub_resource type="Animation" id="Animation_raury"]
@@ -58,10 +158,58 @@ tracks/0/path = NodePath("Top-anguilad-1:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_rpjig"), ExtResource("6_rcmva"), ExtResource("7_1b7ot"), ExtResource("8_k4l6c")]
+"values": [ExtResource("2_k4l6c"), ExtResource("3_jviwr"), ExtResource("4_jmlst"), ExtResource("5_24ok5"), ExtResource("6_pe11l"), ExtResource("7_3nbgf"), ExtResource("8_raury"), ExtResource("9_2ptjr"), ExtResource("10_raigp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Detector/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(145, -67), Vector2(140, -65), Vector2(140, -65), Vector2(140, -65), Vector2(130, -65), Vector2(120, -65), Vector2(110, -65), Vector2(100, -65), Vector2(100, -68)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Detector/CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.9251, 2.15199, 2.37888, 2.71922, 3.05956, 3.62505, 3.85194, 4.19228, 4.41917]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(130, -75), Vector2(125, -75), Vector2(130, -80), Vector2(135, -80), Vector2(130, -80), Vector2(125, -80), Vector2(115, -75), Vector2(110, -75), Vector2(110, -75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.9251, 2.15199, 2.37888, 2.71922, 3.05956, 3.62505, 3.85194, 4.19228, 4.41917]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ptjr"]
@@ -71,11 +219,9 @@ _data = {
 &"move_rigth": SubResource("Animation_raury")
 }
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1b7ot"]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcmva"]
 radius = 32.0
-height = 128.0
+height = 106.0
 
 [node name="Anguila" type="CharacterBody2D"]
 collision_mask = 2
@@ -83,26 +229,26 @@ script = ExtResource("1_fqv1x")
 cola_texture = SubResource("CompressedTexture2D_4sxep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(112, 35)
-rotation = -0.0167741
-shape = SubResource("CapsuleShape2D_xtvxc")
+position = Vector2(55, -37)
+shape = SubResource("CapsuleShape2D_k4l6c")
 
 [node name="Top-anguilad-1" type="Sprite2D" parent="."]
-position = Vector2(114, 35)
+position = Vector2(111, 32)
 texture = SubResource("CompressedTexture2D_fqv1x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1b7ot")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2ptjr")
 }
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_1b7ot")
-
 [node name="Detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(112, 33)
+position = Vector2(140, -70)
+rotation = -1.13272
 shape = SubResource("CapsuleShape2D_rcmva")
 
 [connection signal="area_entered" from="Detector" to="." method="_on_detector_area_entered"]
